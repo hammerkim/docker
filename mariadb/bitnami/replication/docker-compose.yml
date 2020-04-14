@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  mariadb-master:
+    image: 'bitnami/mariadb:latest'
+    ports:
+      - '3306'
+    environment:
+      - MARIADB_REPLICATION_MODE=master
+      - MARIADB_REPLICATION_USER=repl_user
+      - MARIADB_REPLICATION_PASSWORD=aimiramm
+      - MARIADB_ROOT_PASSWORD=aimiramm
+      - MARIADB_USER=hammer
+      - MARIADB_PASSWORD=aimiramm
+      - MARIADB_DATABASE=hammer
+  mariadb-slave:
+    image: 'bitnami/mariadb:latest'
+    ports:
+      - '3306'
+    depends_on:
+      - mariadb-master
+    environment:
+      - MARIADB_REPLICATION_MODE=slave
+      - MARIADB_REPLICATION_USER=repl_user
+      - MARIADB_REPLICATION_PASSWORD=aimiramm
+      - MARIADB_MASTER_HOST=mariadb-master
+      - MARIADB_MASTER_PORT_NUMBER=3306
+      - MARIADB_MASTER_ROOT_PASSWORD=aimiramm
