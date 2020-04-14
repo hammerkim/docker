@@ -1,6 +1,6 @@
 ##
 ## MariaDB 10.3.22 Docker on CentOS 7
-## from https://hub.docker.com/r/cytopia/mariadb-10.3/
+## Based on https://hub.docker.com/r/cytopia/mariadb-10.3/
 ##
 ## add wget
 ## add net-tools
