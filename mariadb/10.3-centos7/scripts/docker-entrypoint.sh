@@ -1,7 +1,7 @@
 #!/bin/sh -eu
 
 ###
-### Variables 1
+### Variables
 ###
 DEBUG_COMMANDS=0
 
